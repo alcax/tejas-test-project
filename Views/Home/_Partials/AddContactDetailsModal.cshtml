@@ -1,0 +1,123 @@
+﻿@model  AddContactModel
+<div class="addcontactmodal modal fade" id="addcontactmodal" tabindex="-1" role="dialog" aria-labelledby="addcontactmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addcontactmodal">Add New Contact Details</h5>
+                <button type="button" class="close" data-dismiss="modal" id="dismismodaladdContact" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-11 col-sm-9 col-md-7 col-lg-12 col-xl-12 text-center p-0 mt-3 mb-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form id="msform">
+                                        <!-- progressbar -->
+                                        <ul id="progressbar">
+                                            <li class="active" id="agreement"><strong>Agreement</strong></li>
+                                            <li id="personal"><strong>Personal data</strong></li>
+                                            <li id="reason"><strong>Reason</strong></li>
+                                            <li id="completed"><strong>Completed</strong></li>
+                                        </ul>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div> <br>
+                                        <fieldset>
+                                            <div class="form-card">
+                                                <div class="row">
+                                                    <div class="col-7">
+                                                        <h2 class="fs-title">Agreement</h2>
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <h2 class="steps">Step 1 - 4</h2>
+                                                    </div>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla felis metus, pulvinar vel quam sed, fringilla sagittis sapien. Nulla vestibulum nulla in dui dignissim, vel hendrerit magna luctus. Nunc eget feugiat ante, quis iaculis eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu magna vestibulum, fringilla libero in, faucibus magna. Nulla ornare egestas magna. Aliquam mauris nibh, posuere eu odio vitae, tempor tempor dui. Vivamus tristique lacinia lacus vitae faucibus. Praesent molestie justo at dignissim consectetur. Donec non augue metus. Nunc suscipit vitae risus at tempor. Cras vitae ligula lacus. Suspendisse augue neque, lobortis nec lacinia eu, cursus id justo. Quisque rhoncus odio nunc.
+                                                    </p>
+
+                                                    <div class="d-flex align-items-center">
+                                                        <input class="mb-0 mr-3" type="checkbox" asp-for="Agreement" value="Agreement" required style="width:auto" />  I accept the terms and conditions.
+                                                        <span asp-validation-for="Agreement" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="button" name="next" class="next action-button" value="Next" />
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-card">
+                                                <div class="row">
+                                                    <div class="col-7">
+                                                        <h2 class="fs-title">Personal Data:</h2>
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <h2 class="steps">Step 2 - 4</h2>
+                                                    </div>
+                                                </div>
+                                                <input type="text" asp-for="FirstName" placeholder="First Name" required="required" />
+                                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                                                <input type="text" asp-for="LastName" placeholder="Last Name" />
+                                                <span asp-validation-for="LastName" class="text-danger"></span>
+
+                                                <select asp-for="Gender" class="form-control" asp-items="ViewBag.Gender"></select>
+
+                                                <input type="text" class="form-control" asp-for="PhoneNumber" placeholder="Phone number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
+                                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+                                                <input type="email" asp-for="Email" placeholder="Email address" required="required" />
+                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                            </div>
+                                            <input type="button" name="next" class="next action-button" value="Next" />
+                                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-card">
+                                                <div class="row">
+                                                    <div class="col-7">
+                                                        <h2 class="fs-title">Reason</h2>
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <h2 class="steps">Step 3 - 4</h2>
+                                                    </div>
+                                                </div>
+                                                <select asp-for="Reason" class="form-control" asp-items="ViewBag.Reason" required="required"></select>
+                                                <textarea asp-for="Body" placeholder="Long Text"></textarea>
+                                                <span asp-validation-for="Body" class="text-danger"></span>
+                                            </div>
+                                            <input type="button" name="next" class="final action-button btnSavedata" value="Submit" />
+                                            <input type="button" name="previous" class="previous action-button-previous " value="Previous" />
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-card">
+                                                <div class="row">
+                                                    <div class="col-7">
+                                                        <h2 class="fs-title">Completed !</h2>
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <h2 class="steps">Step 4 - 4</h2>
+                                                    </div>
+                                                </div> <br><br>
+                                                <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
+                                                <div class="row justify-content-center">
+                                                    <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
+                                                </div> <br><br>
+                                                <div class="row justify-content-center">
+                                                    <div class="col-7 text-center">
+                                                        <h5 class="purple-text text-center">Data has been saved successfully.</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
